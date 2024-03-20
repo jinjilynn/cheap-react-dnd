@@ -1,6 +1,6 @@
 # cheap-react-dnd
 
-[![NPM](https://img.shields.io/badge/npm-v1.0.0-blue)](https://www.npmjs.com/package/cheap-react-dnd)
+[![NPM](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/cheap-react-dnd)
 
 > A very simple and user-friendly drag-and-drop library that supports both mouse and touch events.
 
@@ -113,7 +113,7 @@ Parameter object includes :`key, ref, initData, onDrag`
 
 Parameter object includes :`acceptKeys = ["*"], initData, ref, onDrop`
 
-`acceptKeys` string array required, determining what keys of the drag source can be accepted
+`acceptKeys` string array required, determining what keys of the drag source can be accepted. if the drop target accepts all the keys of drag source, you specify it as `["*"]`
 `ref` DOM reference
 `initData` initial data
 `onDrop` callback when dragging

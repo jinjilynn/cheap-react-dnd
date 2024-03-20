@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { nanoid } from "nanoid";
-import { styled } from "styled-components";
 import { get } from "dva-react-hook";
 import { useStore } from ".";
-
-const Container = styled("div")`
-  width: 100%;
-  height: 100%;
-  position: relative;
-`;
 
 export default function (props) {
   const { children, scale } = props;
@@ -41,8 +34,16 @@ export default function (props) {
     };
   }, [id, store, scale]);
   return (
-    <Container id={id} ref={handler}>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "relative",
+      }}
+      id={id}
+      ref={handler}
+    >
       {children}
-    </Container>
+    </div>
   );
 }
