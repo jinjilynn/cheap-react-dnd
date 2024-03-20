@@ -1,12 +1,12 @@
-# easy-react-dnd
+# cheap-react-dnd
 
-[![NPM](https://img.shields.io/badge/npm-v1.0.0-blue)](https://www.npmjs.com/package/easy-react-dnd)
+[![NPM](https://img.shields.io/badge/npm-v1.0.0-blue)](https://www.npmjs.com/package/cheap-react-dnd)
 
 > A very simple and user-friendly drag-and-drop library that supports both mouse and touch events.
 
 ## Table of Contents
 
-- [easy-react-dnd](#easy-react-dnd)
+- [cheap-react-dnd](#cheap-react-dnd)
   - [Table of Contents](#table-of-contents)
   - [Install](#install)
   - [Quick Start](#quick-start)
@@ -22,10 +22,10 @@
 
 ```bash
 # Yarn
-yarn add easy-react-dnd
+yarn add cheap-react-dnd
 
 # NPM
-npm install easy-react-dnd
+npm install cheap-react-dnd
 ```
 
 ## Quick Start
@@ -36,7 +36,7 @@ import Provider, {
   useDrag,
   useData,
   operationType,
-} from "easy-react-dnd";
+} from "cheap-react-dnd";
 import React, { useRef } from "react";
 
 const style = { width: 100, height: 100 };

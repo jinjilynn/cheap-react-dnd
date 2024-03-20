@@ -1,9 +1,9 @@
 {
-  "name": "easy-react-dnd",
+  "name": "cheap-react-dnd",
   "version": "1.0.0",
   "description": "very simple and easy-to-use drag-and-drop library supporting mouse event and touch event",
-  "main": "dist/easy-react-dnd.umd.js",
-  "module": "dist/easy-react-dnd.mjs",
+  "main": "dist/cheap-react-dnd.umd.js",
+  "module": "dist/cheap-react-dnd.mjs",
   "scripts": {
     "build": "vite build"
   },
@@ -15,7 +15,7 @@
   ],
   "author": "jinjilin@hotmail.com",
   "license": "MIT",
-  "repository": "https://github.com/jinjilynn/easy-react-dnd",
+  "repository": "https://github.com/jinjilynn/cheap-react-dnd",
   "files": [
     "dist"
   ],

@@ -1,4 +1,4 @@
-(function(gt,GA){typeof exports=="object"&&typeof module<"u"?GA(exports,require("react")):typeof define=="function"&&define.amd?define(["exports","react"],GA):(gt=typeof globalThis<"u"?globalThis:gt||self,GA(gt["easy-react-dnd"]={},gt.React))})(this,function(gt,GA){"use strict";var Dr=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function ou(A){return A&&A.__esModule&&Object.prototype.hasOwnProperty.call(A,"default")?A.default:A}var Ho={exports:{}},Tr={};/**
+(function(gt,GA){typeof exports=="object"&&typeof module<"u"?GA(exports,require("react")):typeof define=="function"&&define.amd?define(["exports","react"],GA):(gt=typeof globalThis<"u"?globalThis:gt||self,GA(gt["cheap-react-dnd"]={},gt.React))})(this,function(gt,GA){"use strict";var Dr=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function ou(A){return A&&A.__esModule&&Object.prototype.hasOwnProperty.call(A,"default")?A.default:A}var Ho={exports:{}},Tr={};/**
  * @license React
  * react-jsx-runtime.production.min.js
  *

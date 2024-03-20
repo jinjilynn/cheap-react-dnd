@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: "./index.js",
-      name: "easy-react-dnd",
+      name: "cheap-react-dnd",
     },
     rollupOptions: {
       external: ["react", "react-dom"],
