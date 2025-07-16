@@ -1,6 +1,6 @@
 {
   "name": "cheap-react-dnd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "very simple and easy-to-use drag-and-drop library supporting mouse event and touch event",
   "main": "dist/cheap-react-dnd.umd.js",
   "module": "dist/cheap-react-dnd.mjs",
@@ -20,14 +20,14 @@
     "dist"
   ],
   "dependencies": {
-    "dva-react-hook": "^2.2.4",
+    "dva-react-hook": "^2.6.7",
     "html2canvas": "^1.4.1",
     "nanoid": "^5.0.6"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.1.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vite": "^5.1.6"
   }
 }

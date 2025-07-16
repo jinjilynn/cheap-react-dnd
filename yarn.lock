@@ -537,10 +537,10 @@ debug@^4.1.0, debug@^4.3.1:
   dependencies:
     ms "2.1.2"
 
-dva-react-hook@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/dva-react-hook/-/dva-react-hook-2.2.4.tgz#34ad263a7fc5844fac032551903407223b49b566"
-  integrity sha512-J4CXOYSoXFNL9JA3rATOE69NtTWhYDzpAj3EzKbWmGsOlnDXEOnrSeUhRp3I05G6KCMO29pgJSYRUawOYfMs4w==
+dva-react-hook@^2.6.7:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/dva-react-hook/-/dva-react-hook-2.6.7.tgz#a6651961d10fcb81162f666f98b65206bd61bcce"
+  integrity sha512-e7b3A9bwsU7e09VRd5HT+NAPxYSRlx4SFcWbfTQSzNcqNYPDN60KtVrXXlxUqaafEaiV3vYPulOaAwOSYgD3/Q==
 
 electron-to-chromium@^1.4.668:
   version "1.4.710"

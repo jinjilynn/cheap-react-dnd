@@ -1,6 +1,6 @@
 # cheap-react-dnd
 
-[![NPM](https://img.shields.io/badge/npm-v1.0.1-blue)](https://www.npmjs.com/package/cheap-react-dnd)
+[![NPM](https://img.shields.io/badge/npm-v1.0.2-blue)](https://www.npmjs.com/package/cheap-react-dnd)
 
 > A very simple and user-friendly drag-and-drop library that supports both mouse and touch events.
 
