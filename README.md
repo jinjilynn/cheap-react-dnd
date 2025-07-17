@@ -51,6 +51,7 @@ const DragComponent = () => {
       // dragState is the state of the drag source
       // data is the data of the drop target
       // type is the operation type, e.g., ONSTART, ONENTER, ONHOVER, ONLEAVE, ONDROP, ONEND
+      // setData is a function to update the data of the drop target
       console.log("Dropped", dragState, data, type);
     },
   });
@@ -72,6 +73,7 @@ const DragComponent = () => {
       // data is the data of the drag source
       // dropData is the data of the drop target
       // type is the operation type, e.g., ONSTART, ONENTER, ONHOVER, ONLEAVE, ONDROP, ONEND
+      // setData is a function to update the data of the drag source
       console.log("Dragging", data, dropData, type);
     },
   });
