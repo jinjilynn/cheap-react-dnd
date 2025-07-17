@@ -38,7 +38,7 @@ export default function (props) {
   return (
     <Provider
       noCached={true}
-      nested={false}
+      isolated={true}
       uniqueKey={uniqueKey}
       models={[dragModel]}
     >
