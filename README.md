@@ -114,19 +114,19 @@ Use this within components that is a drag source.
 
 Parameter object includes :`key, ref, initData, onDrag`
 
-`key` : string required.
-`ref` : DOM reference.
-`initData` : initial data.
+`key` : string required.</br>
+`ref` : DOM reference.</br>
+`initData` : initial data.</br>
 `onDrag`: callback when dragging.
 
 ### `useDrop`
 
 Parameter object includes :`acceptKeys = ["*"], initData, ref, onDrop`
 
-`acceptKeys` string array required, determining what keys of the drag source can be accepted. if the drop target accepts all the keys of drag source, you specify it as `["*"]`
-`ref`: DOM reference.
-`initData` : initial data.
-`onDrop`: callback when dragging.
+`acceptKeys` string array required, determining what keys of the drag source can be accepted. if the drop target accepts all the keys of drag source, you specify it as `["*"]`</br>
+`ref`: DOM reference.</br>
+`initData` : initial data.</br>
+`onDrop`: callback when dragging.</br>
 
 Use this within components that is a drop target.
 
@@ -134,7 +134,7 @@ Use this within components that is a drop target.
 
 Use this in any component under the Provider to subscribe to the state of a specific drag source.
 
-Parameter string: `key`
+Parameter string: `key`</br>
 the data of drag source inited by useDrag
 
 ### `operationType`
