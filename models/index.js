@@ -83,7 +83,10 @@ export default {
             `dragModel/drops/${dropclass}/state`
           );
           if (isInside) {
-            if (dropState.includes(operationType.ONSTART)) {
+            if (
+              dropState.includes(operationType.ONSTART) ||
+              dropState.includes(operationType.ONLEAVE)
+            ) {
               setDropState(`${operationType.ONENTER}+${key}+${nanoid()}`);
               setDragState(`${operationType.ONENTER}+${dropclass}`);
             } else {

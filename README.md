@@ -1,6 +1,6 @@
 # cheap-react-dnd
 
-[![NPM](https://img.shields.io/badge/npm-v1.0.2-blue)](https://www.npmjs.com/package/cheap-react-dnd)
+[![NPM](https://img.shields.io/badge/npm-v1.0.3-blue)](https://www.npmjs.com/package/cheap-react-dnd)
 
 > A very simple and user-friendly drag-and-drop library that supports both mouse and touch events.
 
@@ -44,10 +44,15 @@ const style = { width: 100, height: 100 };
 const DragComponent = () => {
   const dropRef = useRef();
   useDrop({
-    acceptKeys = ["*"],
+    acceptKeys: ["*"],
     initData: { dropNo: 0 },
     ref: dropRef,
-    onDrop: ({ dragState, setData, data, type }) => {},
+    onDrop: ({ dragState, setData, data, type }) => {
+      // dragState is the state of the drag source
+      // data is the data of the drop target
+      // type is the operation type, e.g., ONSTART, ONENTER, ONHOVER, ONLEAVE, ONDROP, ONEND
+      console.log("Dropped", dragState, data, type);
+    },
   });
   return (
     <div style={style} ref={dropRef}>
@@ -63,7 +68,12 @@ const DragComponent = () => {
     key: "drag-1",
     ref: dragRef,
     initData: { dragNo: 9 },
-    onDrag: ({ data, setData, type, dropData }) => {},
+    onDrag: ({ data, setData, type, dropData }) => {
+      // data is the data of the drag source
+      // dropData is the data of the drop target
+      // type is the operation type, e.g., ONSTART, ONENTER, ONHOVER, ONLEAVE, ONDROP, ONEND
+      console.log("Dragging", data, dropData, type);
+    },
   });
   return (
     <div style={style} ref={dragRef}>
@@ -104,19 +114,19 @@ Use this within components that is a drag source.
 
 Parameter object includes :`key, ref, initData, onDrag`
 
-`key` string required
-`ref` DOM reference
-`initData` initial data
-`onDrag` callback when dragging
+`key` : string required.
+`ref` : DOM reference.
+`initData` : initial data.
+`onDrag`: callback when dragging.
 
 ### `useDrop`
 
 Parameter object includes :`acceptKeys = ["*"], initData, ref, onDrop`
 
 `acceptKeys` string array required, determining what keys of the drag source can be accepted. if the drop target accepts all the keys of drag source, you specify it as `["*"]`
-`ref` DOM reference
-`initData` initial data
-`onDrop` callback when dragging
+`ref`: DOM reference.
+`initData` : initial data.
+`onDrop`: callback when dragging.
 
 Use this within components that is a drop target.
 
