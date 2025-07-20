@@ -3,7 +3,7 @@ import html2canvas from "html2canvas";
 import { useEffect, useState } from "react";
 import { useStore } from "../provider";
 import { operationType } from "../models";
-import { getClassNamesStartingWith, checkdom } from "../utils";
+import { getClassNamesStartingWith } from "../utils";
 
 /**
  *
@@ -24,14 +24,14 @@ export default function useDrag({ key, ref, initData, onDrag }) {
   const scale = useModel("dragModel/scale", false, store)[0];
   const { state } = useModel(`dragModel/drags/${key}`, false, store)[0] || {};
   const [active, setActive] = useState(false);
-  const [dragClass, setDragClass] = useState(null);
+  const [dragClass] = useState(`easy-drag-${key}`);
   useEffect(() => {
-    if (!state) return;
+    if (!state || !active) return;
     const [data, setData] = get(`dragModel/drags/${key}/data`, store);
     const states = state.split("+");
     const type = states[0];
-    const dropClass = states.slice(-1)[0];
-    const dropData = get(`dragModel/drops/${dropClass}/data`, store)[0];
+    const dropkey = states.slice(-1)[0];
+    const dropData = get(`dragModel/drops/${dropkey}/data`, store)[0];
     onDrag &&
       onDrag({
         data,
@@ -39,10 +39,9 @@ export default function useDrag({ key, ref, initData, onDrag }) {
         type,
         dropData,
       });
-  }, [state, store, key]);
+  }, [state, store, key, active]);
   useEffect(() => {
     const setInitKeyState = get(`dragModel/drags/${key}`, store)[1];
-    setDragClass(`easy-drag-${key}`);
     setInitKeyState({ data: initData })
       .then(() => {
         setActive(true);
@@ -52,22 +51,32 @@ export default function useDrag({ key, ref, initData, onDrag }) {
       });
     return () => {
       setActive(false);
-      setInitKeyState(null);
     };
   }, [key, store]);
   useEffect(() => {
-    if (!active || !dragClass) return;
-    const dom = checkdom(ref);
+    const dom = ref.current;
     if (!dom) return;
-    const preclass = getClassNamesStartingWith(dom, "easy-drag-");
-    if (preclass) {
-      dom.classList.remove(preclass);
-    }
     dom.classList.add(dragClass);
-  }, [active, dragClass, ref, store]);
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class" &&
+          !getClassNamesStartingWith(dom, "easy-drag-")
+        ) {
+          dom.classList.add(dragClass);
+        }
+      });
+    });
+    const config = { attributes: true, attributeFilter: ["class"] };
+    if (dom) {
+      observer.observe(dom, config);
+    }
+    return () => observer.disconnect();
+  }, [dragClass, ref]);
   useEffect(() => {
     if (!active) return;
-    const dom = checkdom(ref);
+    const dom = ref.current;
     if (!dom) return;
     const pointerDown = async (e) => {
       e.preventDefault();

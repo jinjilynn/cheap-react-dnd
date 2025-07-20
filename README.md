@@ -1,6 +1,6 @@
 # cheap-react-dnd
 
-[![NPM](https://img.shields.io/badge/npm-v1.0.4-blue)](https://www.npmjs.com/package/cheap-react-dnd)
+[![NPM](https://img.shields.io/badge/npm-v1.0.5-blue)](https://www.npmjs.com/package/cheap-react-dnd)
 
 > A very simple and user-friendly drag-and-drop library that supports both mouse and touch events.
 
@@ -34,7 +34,8 @@ npm install cheap-react-dnd
 import Provider, {
   useDrop,
   useDrag,
-  useData,
+  useDragData,
+  useDropData,
   operationType,
 } from "cheap-react-dnd";
 import React, { useRef } from "react";
@@ -47,6 +48,7 @@ const DragComponent = () => {
     acceptKeys: ["*"],
     initData: { dropNo: 0 },
     ref: dropRef,
+    key: "drop-1",
     onDrop: ({ dragState, setData, data, type }) => {
       // dragState is the state of the drag source
       // data is the data of the drop target
@@ -85,7 +87,8 @@ const DragComponent = () => {
 };
 
 const AudienceComponent = () => {
-  const data = useData(key);
+  const dragdata = useDragData("drag-1");
+  const dropData = useDropData("drop-1");
   return <div>🥺</div>;
 };
 const App = () => (

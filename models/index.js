@@ -37,13 +37,13 @@ export default {
       const setDragState = select(`dragModel/drags/${key}/state`)[1];
       const drops = select("dragModel/drops")[0];
       const availableDrops = Object.keys(drops).filter(
-        (dropclass) =>
-          drops[dropclass] &&
-          document.querySelector(`.${dropclass}`) !==
+        (dropkey) =>
+          drops[dropkey] &&
+          document.querySelector(`.easy-drop-${dropkey}`) !==
             document.querySelector(`.easy-drag-${key}`)
       );
-      const acceptedDrops = availableDrops.filter((dropclass) => {
-        const acceptKeys = drops[dropclass].acceptKeys || [];
+      const acceptedDrops = availableDrops.filter((dropkey) => {
+        const acceptKeys = drops[dropkey].acceptKeys || [];
         return acceptKeys.includes("*") ? true : acceptKeys.includes(key);
       });
       if (
@@ -59,10 +59,10 @@ export default {
         });
         document.querySelector(`#${root}`).appendChild(new_element);
         await setPreviewAdded(true);
-        acceptedDrops.forEach((dropclass) => {
-          const setDropState = select(`dragModel/drops/${dropclass}/state`)[1];
+        acceptedDrops.forEach((dropkey) => {
+          const setDropState = select(`dragModel/drops/${dropkey}/state`)[1];
           setDropState(`${operationType.ONSTART}+${key}+${nanoid()}`);
-          setDragState(`${operationType.ONSTART}+${dropclass}`);
+          setDragState(`${operationType.ONSTART}+${dropkey}`);
         });
       }
       if (
@@ -76,11 +76,11 @@ export default {
         });
         const x = current.x;
         const y = current.y;
-        for (let dropclass of acceptedDrops) {
-          const dropsState = drops[dropclass];
+        for (let dropkey of acceptedDrops) {
+          const dropsState = drops[dropkey];
           const isInside = isPointInPolygon([x, y], dropsState.polygon);
           const [dropState, setDropState] = select(
-            `dragModel/drops/${dropclass}/state`
+            `dragModel/drops/${dropkey}/state`
           );
           if (isInside) {
             if (
@@ -88,15 +88,15 @@ export default {
               dropState.includes(operationType.ONLEAVE)
             ) {
               setDropState(`${operationType.ONENTER}+${key}+${nanoid()}`);
-              setDragState(`${operationType.ONENTER}+${dropclass}`);
+              setDragState(`${operationType.ONENTER}+${dropkey}`);
             } else {
               setDropState(`${operationType.ONHOVER}+${key}+${nanoid()}`);
-              setDragState(`${operationType.ONHOVER}+${nanoid()}+${dropclass}`);
+              setDragState(`${operationType.ONHOVER}+${nanoid()}+${dropkey}`);
             }
           } else {
             if (dropState.includes(operationType.ONHOVER)) {
               setDropState(`${operationType.ONLEAVE}+${key}+${nanoid()}`);
-              setDragState(`${operationType.ONLEAVE}+${dropclass}`);
+              setDragState(`${operationType.ONLEAVE}+${dropkey}`);
             }
           }
         }
@@ -116,16 +116,16 @@ export default {
         await setPreviewAdded(false);
         const x = current.x;
         const y = current.y;
-        for (let dropclass of acceptedDrops) {
-          const dropsState = drops[dropclass];
+        for (let dropkey of acceptedDrops) {
+          const dropsState = drops[dropkey];
           const isInside = isPointInPolygon([x, y], dropsState.polygon);
-          const setDropState = select(`dragModel/drops/${dropclass}/state`)[1];
+          const setDropState = select(`dragModel/drops/${dropkey}/state`)[1];
           if (isInside) {
             setDropState(`${operationType.ONDROP}+${key}+${nanoid()}`);
-            setDragState(`${operationType.ONDROP}+${dropclass}`);
+            setDragState(`${operationType.ONDROP}+${dropkey}`);
           } else {
             setDropState(`${operationType.ONEND}+${key}+${nanoid()}`);
-            setDragState(`${operationType.ONEND}+${dropclass}`);
+            setDragState(`${operationType.ONEND}+${dropkey}`);
           }
         }
       }
