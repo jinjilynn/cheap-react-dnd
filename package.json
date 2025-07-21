@@ -1,9 +1,10 @@
 {
   "name": "cheap-react-dnd",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "very simple and easy-to-use drag-and-drop library supporting mouse event and touch event",
   "main": "dist/cheap-react-dnd.umd.js",
   "module": "dist/cheap-react-dnd.mjs",
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "vite build"
   },
@@ -17,7 +18,8 @@
   "license": "MIT",
   "repository": "https://github.com/jinjilynn/cheap-react-dnd",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "dependencies": {
     "dva-react-hook": "^2.6.9",
