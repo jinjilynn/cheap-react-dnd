@@ -78,6 +78,15 @@ export default function useDrag({ key, ref, initData, onDrag }) {
     if (!active) return;
     const dom = ref.current;
     if (!dom) return;
+    const domRect = dom.getBoundingClientRect();
+    const polygon = [
+      [domRect.left - offset.x, domRect.top - offset.y],
+      [domRect.right - offset.x, domRect.top - offset.y],
+      [domRect.right - offset.x, domRect.bottom - offset.y],
+      [domRect.left - offset.x, domRect.bottom - offset.y],
+    ];
+    const setDropPolygon = get(`dragModel/drags/${key}/polygon`, store)[1];
+    setDropPolygon(polygon);
     const pointerDown = async (e) => {
       e.preventDefault();
       dom.setPointerCapture(e.pointerId);
@@ -90,7 +99,7 @@ export default function useDrag({ key, ref, initData, onDrag }) {
         `dragModel/drags/${key}/startPosition`,
         store
       )[1];
-      const domRect = dom.getBoundingClientRect();
+
       const { width, height, left, top } = domRect;
       const preview = await html2canvas(dom, {
         useCORS: true,

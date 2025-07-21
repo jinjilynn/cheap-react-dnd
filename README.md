@@ -14,7 +14,8 @@
     - [`Provider`](#provider)
     - [`useDrag`](#usedrag)
     - [`useDrop`](#usedrop)
-    - [`useData`](#usedata)
+    - [`useDropState`](#useDropState)
+    - [`useDragState`](#useDragState)
     - [`operationType`](#operationtype)
   - [License](#license)
 
@@ -34,8 +35,8 @@ npm install cheap-react-dnd
 import Provider, {
   useDrop,
   useDrag,
-  useDragData,
-  useDropData,
+  useDragState,
+  useDropState,
   operationType,
 } from "cheap-react-dnd";
 import React, { useRef } from "react";
@@ -87,8 +88,8 @@ const DragComponent = () => {
 };
 
 const AudienceComponent = () => {
-  const dragdata = useDragData("drag-1");
-  const dropData = useDropData("drop-1");
+  const dragdata = useDragState("drag-1");
+  const dropData = useDropState("drop-1");
   return <div>🥺</div>;
 };
 const App = () => (

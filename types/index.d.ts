@@ -33,20 +33,34 @@ export type UseDropProps = {
   key: string;
 };
 
-export type useDragDataProps = {
+export type useDragStateProps = {
   key: string;
 };
 
-export type useDropDataProps = {
+export type useDropStateaProps = {
   key: string;
 };
 
 export function useDrag(props: UseDragProps): void;
 export function useDrop(props: UseDropProps): void;
-export function useDragData(
-  props: useDragDataProps
-): [any, (data: any) => void, () => void];
-export function useDropData(
-  props: useDropDataProps
-): [any, (data: any) => void, () => void];
-export function Provider(props: ProviderProps): JSX.Element;
+export function useDragState(props: useDragStateProps): {
+  data: any;
+  setData: (data: any) => void;
+  polygon: [
+    [number, number],
+    [number, number],
+    [number, number],
+    [number, number]
+  ];
+};
+export function useDropState(props: useDropStateaProps): {
+  data: any;
+  setData: (data: any) => void;
+  polygon: [
+    [number, number],
+    [number, number],
+    [number, number],
+    [number, number]
+  ];
+};
+export function Provider(props: ProviderProps): React.JSX.Element;
