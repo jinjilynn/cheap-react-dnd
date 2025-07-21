@@ -14,9 +14,21 @@ export type UseDragProps = {
   initData?: any;
   onDrag?: (params: {
     data: any;
+    polygon?: [
+      [number, number],
+      [number, number],
+      [number, number],
+      [number, number]
+    ];
     setData: (data: any) => void;
     type: string;
-    dropData?: any;
+    dropData: any;
+    dropPolygon?: [
+      [number, number],
+      [number, number],
+      [number, number],
+      [number, number]
+    ];
   }) => void;
 };
 
@@ -25,10 +37,22 @@ export type UseDropProps = {
   initData?: any;
   ref: React.RefObject<HTMLElement>;
   onDrop?: (params: {
-    dragState: any;
-    setData: (data: any) => void;
     data: any;
+    polygon?: [
+      [number, number],
+      [number, number],
+      [number, number],
+      [number, number]
+    ];
+    setData: (data: any) => void;
     type: string;
+    dragData: any;
+    dragPolygon?: [
+      [number, number],
+      [number, number],
+      [number, number],
+      [number, number]
+    ];
   }) => void;
   key: string;
 };

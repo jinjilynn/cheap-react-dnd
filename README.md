@@ -1,6 +1,6 @@
 # cheap-react-dnd
 
-[![NPM](https://img.shields.io/badge/npm-v1.0.6-blue)](https://www.npmjs.com/package/cheap-react-dnd)
+[![NPM](https://img.shields.io/badge/npm-v1.0.8-blue)](https://www.npmjs.com/package/cheap-react-dnd)
 
 > A very simple and user-friendly drag-and-drop library that supports both mouse and touch events.
 
@@ -50,12 +50,12 @@ const DragComponent = () => {
     initData: { dropNo: 0 },
     ref: dropRef,
     key: "drop-1",
-    onDrop: ({ dragState, setData, data, type }) => {
-      // dragState is the state of the drag source
+    onDrop: ({ dragData, setData, data, type, polygon, dragPolygon }) => {
+      // dragData is the state of the drag source
       // data is the data of the drop target
       // type is the operation type, e.g., ONSTART, ONENTER, ONHOVER, ONLEAVE, ONDROP, ONEND
       // setData is a function to update the data of the drop target
-      console.log("Dropped", dragState, data, type);
+      console.log("Dropped", dragData, data, type);
     },
   });
   return (
@@ -72,7 +72,7 @@ const DragComponent = () => {
     key: "drag-1",
     ref: dragRef,
     initData: { dragNo: 9 },
-    onDrag: ({ data, setData, type, dropData }) => {
+    onDrag: ({ data, setData, type, dropData, polygon, dropPolygon }) => {
       // data is the data of the drag source
       // dropData is the data of the drop target
       // type is the operation type, e.g., ONSTART, ONENTER, ONHOVER, ONLEAVE, ONDROP, ONEND
@@ -135,13 +135,6 @@ Parameter object includes :`acceptKeys = ["*"], initData, ref, onDrop`
 `onDrop`: callback when dragging.</br>
 
 Use this within components that is a drop target.
-
-### `useData`
-
-Use this in any component under the Provider to subscribe to the state of a specific drag source.
-
-Parameter string: `key`</br>
-the data of drag source inited by useDrag
 
 ### `operationType`
 

@@ -1,6 +1,6 @@
 {
   "name": "cheap-react-dnd",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "very simple and easy-to-use drag-and-drop library supporting mouse event and touch event",
   "main": "dist/cheap-react-dnd.umd.js",
   "module": "dist/cheap-react-dnd.mjs",

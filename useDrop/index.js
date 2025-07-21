@@ -20,9 +20,11 @@ export default function useDrop({
   useEffect(() => {
     if (!state || !active) return;
     const [data, setData] = get(`dragModel/drops/${key}/data`, store);
+    const polygon = get(`dragModel/drops/${key}/polygon`, store)[0];
     const [type, dragKey] = state.split("+");
     const dragState = get(`dragModel/drags/${dragKey}/data`, store)[0];
-    onDrop && onDrop({ dragState, setData, data, type });
+    const dragPolygon = get(`dragModel/drags/${dragKey}/polygon`, store)[0];
+    onDrop && onDrop({ data, polygon, setData, type, dragState, dragPolygon });
   }, [state, store, key, active]);
 
   useEffect(() => {
